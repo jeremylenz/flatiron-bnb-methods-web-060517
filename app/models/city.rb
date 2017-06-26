@@ -19,7 +19,7 @@ class City < ActiveRecord::Base
     squirrel
   end
 
-  def self.highest_ratio_res_to_listings
+  def self.highest_ratio_res_to_listings #testing
     result = City.all.each_with_object({}) do |city, ratio_list|
       # for each city,
       # count the number of listings
