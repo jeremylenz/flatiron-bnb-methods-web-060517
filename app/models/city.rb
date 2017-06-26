@@ -19,5 +19,20 @@ class City < ActiveRecord::Base
     squirrel
   end
 
+  def self.highest_ratio_res_to_listings
+    result = City.all.each_with_object({}) do |city, ratio_list|
+      # for each city,
+      # count the number of listings
+      # then count the number of reservations on each listing and add them up
+      # then assign a score which is reservations divided by listings
+      num_of_listings = city.listings.length
+      num_of_reservations = city.listings.all.inject(0) do |memory, next_listing|
+        memory + next_listing.reservations.length
+      end
+      ratio_list[city] = num_of_reservations.to_f / num_of_listings.to_f
+    end
+    result.key(result.values.max)
+  end
+
 
 end
