@@ -2,6 +2,8 @@ class City < ActiveRecord::Base
   has_many :neighborhoods
   has_many :listings, :through => :neighborhoods
 
+
+
   def city_openings(start_date, end_date)
     t1 = Date.parse(start_date)
     t2 = Date.parse(end_date)
@@ -36,7 +38,7 @@ class City < ActiveRecord::Base
     # note the number of reservations
     # see which one is the highest
     City.all.inject(City.all.first) do |champ, next_city|
-      next_city.num_of_reservations > champ.num_of_reservations ? next_city : champ 
+      next_city.num_of_reservations > champ.num_of_reservations ? next_city : champ
     end
   end
 
