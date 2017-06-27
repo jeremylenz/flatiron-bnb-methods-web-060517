@@ -21,22 +21,22 @@ class Listing < ActiveRecord::Base
 
   def all_fields
     if self.address == nil
-      errors.add(:address, "Address can't be blank")
+      errors.add(:address, "can't be blank")
     end
     if self.listing_type == nil
-      errors.add(:listing_type, "Listing type can't be blank")
+      errors.add(:listing_type, "can't be blank")
     end
     if self.title == nil
-      errors.add(:title, "Title can't be blank")
+      errors.add(:title, "can't be blank")
     end
     if self.description == nil
-      errors.add(:description, "Description can't be blank")
+      errors.add(:description, "can't be blank")
     end
     if self.price == nil
-      errors.add(:price, "Price can't be blank")
+      errors.add(:price, "can't be blank")
     end
     if self.neighborhood == nil
-      errors.add(:neighborhood, "Neighborhood can't be blank")
+      errors.add(:neighborhood, "can't be blank")
     end
   end
 
